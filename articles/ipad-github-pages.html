@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPadだけでGitHub Pagesに個人サイトを公開する | sirkerf</title>
+  <meta
+    name="description"
+    content="iPadとGitHub Pagesを使い、HTMLとCSSで個人サイトを公開した際の作業記録です。"
+  >
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="site-title"><a href="../index.html">sirkerf</a></p>
+      <nav aria-label="主要メニュー">
+        <ul>
+          <li><a href="../profile.html">Profile</a></li>
+          <li><a href="../works.html">Works</a></li>
+          <li><a href="../writing.html">Writing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="article-body">
+      <a class="back-link" href="../writing.html">&larr; Writingへ戻る</a>
+      <p class="article-meta">2026-05-31</p>
+      <h1>iPadだけでGitHub Pagesに個人サイトを公開する</h1>
+      <p>
+        iPadだけを使い、GitHub Pages上に個人サイトを公開しました。
+        最初の目的は、複雑な機能を実装することではなく、
+        後から継続的に更新できる最小構成を作ることでした。
+      </p>
+      <h2>使用したもの</h2>
+      <ul>
+        <li>iPad</li>
+        <li>Safari</li>
+        <li>GitHubアカウント</li>
+        <li>GitHub Pages</li>
+        <li>github.dev</li>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
+      <h2>最初に作成した構造</h2>
+      <p>
+        サイトは、トップページから複数のページへ移動できる構造にしました。
+      </p>
+      <pre><code>sirkerf.github.io/
+├── index.html
+├── profile.html
+├── works.html
+├── writing.html
+├── style.css
+└── articles/
+    └── ipad-github-pages.html</code></pre>
+      <h2>公開までの手順</h2>
+      <ol>
+        <li>GitHub上に <code>sirkerf.github.io</code> リポジトリを作成する。</li>
+        <li>GitHub Pagesの公開元として <code>main</code> ブランチの <code>/(root)</code> を指定する。</li>
+        <li><code>index.html</code> を作成する。</li>
+        <li><code>style.css</code> を追加する。</li>
+        <li>Profile、Works、Writingの各ページを追加する。</li>
+        <li>変更をコミットしてGitHubへ反映する。</li>
+      </ol>
+      <h2>iPadで編集する際の考え方</h2>
+      <p>
+        iPadでは、ブラウザ上で動く
+        <code>github.dev</code> を使ってファイルを編集しました。
+        複数のHTMLファイルとCSSファイルを扱う場合、
+        通常のGitHub画面よりも編集しやすくなります。
+      </p>
+      <p>
+        また、変更内容は一定の単位でコミットします。
+        一度に大量の変更を加えるよりも、
+        ページ単位で履歴を残した方が修正しやすくなります。
+      </p>
+      <h2>今後追加するもの</h2>
+      <ul>
+        <li>Haskell製プログラムの公開</li>
+        <li>制作物ごとのREADME</li>
+        <li>技術記事</li>
+        <li>考察や創作に関する文章</li>
+      </ul>
+      <p class="note">
+        このサイト自体も制作物として継続的に改善します。
+      </p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 sirkerf</p>
+    </div>
+  </footer>
+</body>
+</html>
