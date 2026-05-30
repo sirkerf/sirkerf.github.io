@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Writing | sirkerf</title>
-  <meta name="description" content="sirkerfの技術記事、考察、創作。">
+  <meta
+    name="description"
+    content="sirkerfの技術記事、考察、創作を掲載するページです。"
+  >
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,28 +18,47 @@
         <ul>
           <li><a href="profile.html">Profile</a></li>
           <li><a href="works.html">Works</a></li>
-          <li><a href="writing.html">Writing</a></li>
+          <li><a href="writing.html" aria-current="page">Writing</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main>
-    <article class="content">
+    <section class="content">
       <h1>Writing</h1>
-
       <p>
-        技術記事、考察、創作などの文章を掲載するページです。
+        技術記事、考察、創作などの文章を掲載します。
+        内容は順次追加していきます。
       </p>
-
-      <h2>Articles</h2>
-
-      <p class="note">
-        記事は順次追加します。
-      </p>
-    </article>
+      <div class="article-list">
+        <article class="article-card">
+          <span class="status">Coming Soon</span>
+          <h2>Technical Notes</h2>
+          <p class="article-meta">Haskell / Web / Programming</p>
+          <p>
+            Haskell、関数型プログラミング、Web制作、
+            小規模な開発で得た知見を整理します。
+          </p>
+        </article>
+        <article class="article-card">
+          <span class="status">Coming Soon</span>
+          <h2>Essays</h2>
+          <p class="article-meta">Information Design / Society / Thought</p>
+          <p>
+            情報整理、設計、社会、思考方法などに関する文章を掲載します。
+          </p>
+        </article>
+        <article class="article-card">
+          <span class="status">Coming Soon</span>
+          <h2>Creative Writing</h2>
+          <p class="article-meta">Fiction / Worldbuilding</p>
+          <p>
+            創作、物語、世界観設計に関する文章を掲載します。
+          </p>
+        </article>
+      </div>
+    </section>
   </main>
-
   <footer class="site-footer">
     <div class="footer-inner">
       <p>&copy; 2026 sirkerf</p>
