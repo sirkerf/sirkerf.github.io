@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Works | sirkerf</title>
-  <meta name="description" content="sirkerfの制作物一覧。">
+  <meta
+    name="description"
+    content="sirkerfの制作物一覧。Haskell、Discord Bot、Web制作などのプロジェクトを掲載しています。"
+  >
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,43 +17,69 @@
       <nav aria-label="主要メニュー">
         <ul>
           <li><a href="profile.html">Profile</a></li>
-          <li><a href="works.html">Works</a></li>
+          <li><a href="works.html" aria-current="page">Works</a></li>
           <li><a href="writing.html">Writing</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main>
     <section>
       <h1>Works</h1>
-      <p>制作物を掲載するページです。</p>
-
+      <p>
+        プログラミング、Web制作、文章整理に関する制作物を掲載します。
+        開発中のものについては、現在の状態を明記しています。
+      </p>
       <div class="card-grid">
         <article class="card">
-          <h2>Haskell Projects</h2>
+          <span class="status">In Progress</span>
+          <h2>SameGame in Haskell</h2>
           <p>
-            Haskellで制作したプログラムを掲載します。
+            同じ色のブロックをまとめて消していくパズルゲーム
+            「SameGame」を、Haskellで実装するプロジェクトです。
+            ゲームロジック、盤面更新、入力処理を分離し、
+            保守しやすい構造を目指しています。
           </p>
+          <ul class="tags">
+            <li>Haskell</li>
+            <li>Game Logic</li>
+            <li>CLI</li>
+          </ul>
         </article>
-
         <article class="card">
-          <h2>Web Projects</h2>
+          <span class="status">Planning</span>
+          <h2>Discord Bot Project</h2>
           <p>
-            HTML、CSS、JavaScriptを用いた制作物を掲載します。
+            Discord上で操作できる小規模なBotを設計しています。
+            コマンド入力、状態管理、応答処理を整理し、
+            将来的にはゲーム機能や補助機能を追加する予定です。
           </p>
+          <ul class="tags">
+            <li>Haskell</li>
+            <li>Discord</li>
+            <li>Bot</li>
+          </ul>
         </article>
-
         <article class="card">
-          <h2>Other Works</h2>
+          <span class="status">Published</span>
+          <h2>Personal Website</h2>
           <p>
-            その他の制作物を掲載します。
+            HTMLとCSSを用いて制作した個人サイトです。
+            Profile、Works、Writingの各ページへ分岐する構造とし、
+            iPadから継続的に編集できるよう、静的サイトとして構築しています。
+          </p>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>GitHub Pages</li>
+          </ul>
+          <p class="work-links">
+            <a href="https://sirkerf.github.io/">公開サイトを見る</a>
           </p>
         </article>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="footer-inner">
       <p>&copy; 2026 sirkerf</p>
