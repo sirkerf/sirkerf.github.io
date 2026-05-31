@@ -275,3 +275,34 @@ main {
   display: inline-block;
   margin-bottom: 22px;
 }
+
+.journal-entry,
+.book-item {
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.journal-entry h2,
+.book-item h2 {
+  margin: 4px 0 10px;
+  font-size: 1.25rem;
+}
+.journal-entry p:last-child,
+.book-item p:last-child {
+  margin-bottom: 0;
+}
+.entry-date,
+.book-meta {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+.empty-state {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+}
