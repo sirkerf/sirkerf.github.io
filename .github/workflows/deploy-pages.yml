@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -26,6 +26,69 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Stamp new diary entries with push time in JST
+        env:
+          PUSHED_AT: ${{ github.event.repository.pushed_at }}
+        run: |
+          python3 <<'PY'
+          from datetime import datetime, timedelta, timezone
+          from pathlib import Path
+          import os
+          import re
+
+          raw = os.environ.get("PUSHED_AT", "").strip()
+
+          try:
+              if raw.isdigit():
+                  pushed_at = datetime.fromtimestamp(int(raw), tz=timezone.utc)
+              else:
+                  pushed_at = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+
+              if pushed_at.tzinfo is None:
+                  pushed_at = pushed_at.replace(tzinfo=timezone.utc)
+
+          except ValueError:
+              # workflow_dispatch で手動実行した場合などの予備処理
+              pushed_at = datetime.now(timezone.utc)
+
+          jst = pushed_at.astimezone(timezone(timedelta(hours=9)))
+
+          iso_timestamp = jst.isoformat(timespec="seconds")
+          display_timestamp = jst.strftime("%Y-%m-%d %H:%M:%S JST")
+
+          path = Path("diary.html")
+          original = path.read_text(encoding="utf-8")
+
+          # HTMLコメント内のテンプレートは置換せずに残す。
+          parts = re.split(r"(<!--.*?-->)", original, flags=re.DOTALL)
+
+          for index in range(0, len(parts), 2):
+              parts[index] = parts[index].replace("AUTO_JST_ISO", iso_timestamp)
+              parts[index] = parts[index].replace("AUTO_JST_DISPLAY", display_timestamp)
+
+          updated = "".join(parts)
+
+          if updated != original:
+              path.write_text(updated, encoding="utf-8")
+              print(f"Stamped diary entry: {display_timestamp}")
+          else:
+              print("No unstamped diary entry was found.")
+          PY
+
+      - name: Commit stamped diary dates
+        run: |
+          if git diff --quiet -- diary.html; then
+            echo "No generated change to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add diary.html
+          git commit -m "Stamp diary entry date in JST [skip ci]"
+          git push origin HEAD:main
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
