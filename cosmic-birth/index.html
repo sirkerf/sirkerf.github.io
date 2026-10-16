@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07101e">
+<meta name="description" content="観測可能宇宙のどこかに、ひとつの恒星として生まれる。連星、惑星形成、生命の誕生、星の最期まで体験する無料の宇宙シミュレーション。">
+<title>宇宙の一粒 — ONE IN THE COSMOS</title>
+<style>
+:root{color-scheme:dark;--bg:#080f20;--panel:#121d37;--line:#344460;--text:#f3f7ff;--muted:#b8c5df;--aqua:#8ce9dd}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#263a63,#0e1931 37%,#080f20 76%);color:var(--text);font:15px/1.7 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;min-height:100svh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(1px 1px at 12% 22%,#fff 90%,transparent),radial-gradient(1px 1px at 75% 66%,#fff 90%,transparent),radial-gradient(1.5px 1.5px at 58% 7%,#fff 90%,transparent),radial-gradient(1px 1px at 32% 94%,#fff 90%,transparent);background-size:263px 293px,313px 373px,347px 197px,433px 283px;opacity:.30}
+main{max-width:690px;margin:auto;padding:22px 16px calc(42px + env(safe-area-inset-bottom));position:relative}.top{display:flex;align-items:center;justify-content:space-between;gap:10px}.eyebrow{color:#9df0e5;letter-spacing:.23em;font-size:10px;font-weight:750}.brand{font-size:22px;font-weight:850;letter-spacing:-.035em}.muted{color:var(--muted)}.tiny{font-size:11px;color:var(--muted)}.pill{border:1px solid #536581;background:#172743aa;border-radius:99px;padding:4px 9px;font-size:10px;white-space:nowrap}
+.card{background:#101a32e6;border:1px solid #384a6c;border-radius:20px;padding:17px;margin:13px 0;box-shadow:0 10px 45px #03091533}.hero{text-align:center;padding:21px 17px 23px;background:linear-gradient(160deg,#1c2c52,#111a33);overflow:hidden}.hero h1{font-size:clamp(24px,7vw,35px);line-height:1.38;letter-spacing:-.045em;margin:2px 0 8px}.hero p{font-size:13px;color:#c5d3ed;margin:0}.sky{height:202px;position:relative;display:grid;place-items:center}.orbit{position:absolute;width:190px;height:190px;border:1px solid #a3c1ff38;border-radius:50%;transform:rotate(-22deg) scaleX(1.22)}.orbit.b{transform:rotate(37deg) scaleX(.77)}.sun{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 33% 30%,#fff,#ffedb3 33%,#f2a86d 68%,#a25468);box-shadow:0 0 40px #f0af6a77,0 0 110px #f0af6a44;position:relative;animation:pulse 7s ease-in-out infinite alternate}.sun:after{content:"";position:absolute;inset:3px;border-radius:50%;box-shadow:inset -16px -18px 24px #07132476}.second-star{position:absolute;left:65%;top:34%;width:33px;height:33px;border-radius:50%;background:#dbecff;box-shadow:0 0 25px #c7e6ff;display:none}.second-star.show{display:block}@keyframes pulse{to{transform:scale(1.035)}}.sec-title{font-weight:800;color:#d9e6ff;font-size:13px;margin-bottom:9px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:9px}.fact{background:#0b152bc4;border:1px solid #32435d;border-radius:11px;padding:10px;min-height:69px}.fact small{color:#a6bad7;display:block;font-size:10px}.fact strong{font-size:14px;overflow-wrap:anywhere}.accent{color:var(--aqua)}.notice{border-left:3px solid #e8b87b;padding:8px 10px;background:#5b49212d;font-size:11px;color:#f0daa9;border-radius:0 9px 9px 0;margin:11px 0}.button{width:100%;border:0;border-radius:14px;cursor:pointer;min-height:48px;padding:13px 14px;font:800 15px/1.4 inherit;-webkit-tap-highlight-color:transparent}.button.primary{background:linear-gradient(100deg,#93f1e3,#d4f7d9);color:#10333d}.button.secondary{border:1px solid #617795;background:#1c2c46;color:#e6f0ff}.button:active{transform:scale(.99)}.button:focus-visible{outline:2px solid white;outline-offset:4px}.actions{display:grid;gap:9px}.hidden{display:none!important}.progress{display:flex;gap:5px;margin:11px 0 16px}.progress span{flex:1;height:5px;border-radius:10px;background:#35445d}.progress span.done{background:#8ce9dd}.story{border-left:2px solid #8ce9dd;padding:1px 0 2px 13px;margin-bottom:19px;min-height:128px}.story .era{font-size:11px;color:#91e8d9;font-weight:750}.story h2{font-size:22px;margin:4px 0 7px;line-height:1.4}.story p{font-size:13px;color:#d8e3f7;margin:0;white-space:pre-line}.system{display:grid;gap:8px}.planet{display:flex;gap:11px;align-items:center;padding:10px;background:#0d1830;border:1px solid #344761;border-radius:12px}.planet-dot{width:28px;height:28px;border-radius:50%;flex:0 0 28px;background:radial-gradient(circle at 30% 25%,#dfe8ff,#789ac0 55%,#182c4e)}.planet b{font-size:13px;display:block}.planet small{font-size:11px;color:#aabbd3}.mark{color:#a5f1df}.end{font-size:15px;color:#ffe8b1;font-weight:800}.footer{text-align:center;font-size:10px;color:#a4b4d1;margin-top:25px;padding:10px;line-height:1.9}.link{color:#9ff0e7;text-decoration:underline;text-underline-offset:3px}
+@media(prefers-reduced-motion:reduce){.sun{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><div><div class="eyebrow">ONE IN THE COSMOS</div><div class="brand">宇宙の一粒</div></div><span class="pill">観測可能宇宙・無料</span></div>
+<section id="intro">
+ <div class="card hero"><div class="sky"><span class="orbit"></span><span class="orbit b"></span><div class="sun"></div></div><div class="eyebrow">A STAR IS BORN</div><h1>宇宙のどこかで、<br>星になる。</h1><p>生まれる銀河も、質量も、運命も選べない。<br>連星や惑星、生命の可能性を抱え、ひとつの恒星として生きよう。</p></div>
+ <div class="card"><div class="sec-title">今回の宇宙</div><div class="facts"><div class="fact"><small>抽選対象</small><strong>観測可能宇宙</strong></div><div class="fact"><small>恒星の数</small><strong>10²²〜10²⁴個程度の推定規模</strong></div><div class="fact"><small>連星系</small><strong>質量に応じた抽選</strong></div><div class="fact"><small>惑星・生命</small><strong>仮想モデルで分岐</strong></div></div><div class="notice">これは実在の全恒星から抽出した結果ではありません。星の種類や連星の頻度は簡易近似、惑星形成と生命発生は創作上の仮定です。とくに生命発生の確率は科学的に確定していません。</div></div>
+ <button class="button primary" id="birth">✦ 宇宙に生まれる</button>
+ <p class="tiny">ログイン・広告・課金・外部通信なし。結果はこの端末内だけで計算します。</p>
+</section>
+<section id="playing" class="hidden" aria-live="polite">
+ <div class="card hero"><div class="sky"><span class="orbit"></span><span class="orbit b"></span><div class="sun" id="starImage"></div><div class="second-star" id="companionImage"></div></div><div class="eyebrow" id="zone">観測可能宇宙</div><h1 id="starName">あなたの星</h1><p id="subline"></p></div>
+ <div class="card"><div class="sec-title">出生情報</div><div class="facts" id="starFacts"></div><p class="tiny" id="serial"></p></div>
+ <div class="card"><div class="sec-title">星の一生 <span style="float:right;font-weight:400" id="stageNum"></span></div><div class="progress" id="progress"></div><div class="story"><div class="era" id="era"></div><h2 id="chapter"></h2><p id="narration"></p></div><div id="system" class="system hidden"></div><div class="actions" style="margin-top:14px"><button class="button primary" id="forward">次の時代へ →</button><button class="button secondary hidden" id="again">別の星に生まれる</button><button class="button secondary hidden" id="copy">結果をコピー</button></div><p class="tiny" id="foot"></p></div>
+</section>
+<p class="footer">Astronomy-inspired fiction · © sirkerf<br>広告なし / 分析ツールなし / サーバーに個人情報を送信しません。<br>恒星数は推定値であり、抽選IDは演出です。生命イベントの確率は実測値ではありません。<br><a class="link" href="https://science.nasa.gov/universe/stars/" target="_blank" rel="noopener noreferrer">恒星について：NASA Science（参考）</a></p>
+</main>
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+function rand(){try{var a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]/4294967296}catch(e){return Math.random()}}
+function chance(x){return rand()<x}
+function between(a,b){return a+(b-a)*rand()}
+function choice(a){return a[Math.floor(rand()*a.length)]}
+function f(n,d){return Number(n).toLocaleString("ja-JP",{maximumFractionDigits:d===undefined?1:d})}
+function probPick(arr){var s=0,i,r;for(i=0;i<arr.length;i++)s+=arr[i].weight;r=rand()*s;for(i=0;i<arr.length;i++){r-=arr[i].weight;if(r<0)return arr[i]}return arr[arr.length-1]}
+var TYPES=[
+{key:"M",name:"赤色矮星",weight:75,min:.08,max:.58,t:[2400,3900],color:"#ff936a",bin:.25,disk:.87},
+{key:"K",name:"橙色矮星",weight:12,min:.58,max:.88,t:[3900,5300],color:"#ffc57f",bin:.35,disk:.92},
+{key:"G",name:"黄色矮星",weight:7,min:.88,max:1.12,t:[5300,6000],color:"#ffebb0",bin:.45,disk:.93},
+{key:"F",name:"黄白色星",weight:3,min:1.12,max:1.55,t:[6000,7400],color:"#fff7e1",bin:.56,disk:.86},
+{key:"A",name:"白色星",weight:2,min:1.55,max:2.9,t:[7400,10000],color:"#d9eaff",bin:.66,disk:.64},
+{key:"B",name:"青白色星",weight:.9,min:2.9,max:16,t:[10000,30000],color:"#abc9ff",bin:.75,disk:.37},
+{key:"O",name:"青色巨星",weight:.1,min:16,max:65,t:[30000,48000],color:"#83afff",bin:.85,disk:.20}
+];
+var stage=0,s=null,rolls=0;
+function lifetime(m){if(m<.5)return Math.min(20000,10*Math.pow(m,-2.1));if(m<2)return 10*Math.pow(m,-2.7);return 10*Math.pow(m,-2.5)}
+function years(gyr){if(gyr>=1000)return f(gyr/1000,1)+"兆年";if(gyr>=1)return f(gyr*10,1)+"億年";if(gyr>=.001)return f(gyr*10000,1)+"万年";return f(gyr*1000000000,0)+"年"}
+function luminosity(m){if(m<.43)return .23*Math.pow(m,2.3);if(m<2)return Math.pow(m,4);if(m<20)return 1.4*Math.pow(m,3.5);return 3200*m}
+function bigID(){var str="";for(var i=0;i<23;i++)str+=(i===0?1+Math.floor(rand()*9):Math.floor(rand()*10));return str.replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+function planetName(i){return ["第一","第二","第三","第四","第五","第六","第七","第八","第九","第十"][i]+"惑星"}
+function systemCreate(t,m,binary,lum,life){var hasDisk=chance(t.disk*(binary==="近接連星"?.68:1));var count=hasDisk?Math.floor(between(1,9)):0,pls=[],hzMin=.95*Math.sqrt(lum),hzMax=1.67*Math.sqrt(lum);
+ for(var i=0;i<count;i++){
+  var orbit=chance(.28)?between(.65,1.9)*Math.sqrt(lum):Math.exp(between(Math.log(.035),Math.log(80)));
+  if(binary==="近接連星")orbit=Math.max(.32,orbit);
+  var kind=orbit>3.2?"巨大ガス惑星":orbit>1.8&&chance(.60)?"氷惑星":chance(.72)?"岩石惑星":"巨大ガス惑星";
+  var suitable=kind==="岩石惑星"&&orbit>=hzMin&&orbit<=hzMax&&life>1&&m<=1.8;
+  // The following chances are narrative inventions, not measured abiogenesis rates.
+  var living=suitable&&chance(.12);
+  var complex=living&&life>2&&chance(.16);
+  var intelligence=complex&&chance(.012);
+  pls.push({name:planetName(i),orbit:orbit,kind:kind,suitable:suitable,life:living,complex:complex,intelligence:intelligence});
+ }
+ pls.sort(function(a,b){return a.orbit-b.orbit});
+ for(var j=0;j<pls.length;j++)pls[j].name=planetName(j);
+ return {planets:pls,hzMin:hzMin,hzMax:hzMax,hasDisk:hasDisk};
+}
+function born(){
+ var t=probPick(TYPES),m=t.min*Math.pow(t.max/t.min,rand()),life=lifetime(m),temp=Math.round(between(t.t[0],t.t[1])/100)*100;
+ var binary=chance(t.bin)?(chance(.48)?"近接連星":"広い連星"):"単独星";
+ var companion=binary==="単独星"?0:between(.1,.98)*m;
+ var lum=luminosity(m);
+ if(binary==="近接連星")lum+=luminosity(companion);
+ var location=choice(["遠方の渦巻銀河","遠方の楕円銀河","矮小銀河","不規則銀河","銀河団の渦巻銀河","銀河の外縁"]);
+ var region=choice(["古い星々の隙間","新しい星形成領域","星間分子雲の近く","銀河円盤の外縁","散開星団の周辺"]);
+ var formed=systemCreate(t,m,binary,lum,life);
+ s={t:t,m:m,life:life,temp:temp,binary:binary,companion:companion,lum:lum,location:location,region:region,system:formed,id:bigID(),roll:++rolls};
+ stage=0;
+ $("intro").classList.add("hidden");$("playing").classList.remove("hidden");
+ $("starName").textContent=t.key+"型・"+t.name;
+ $("subline").textContent=location+"。あなたは"+(binary==="単独星"?"ひとつの恒星":"連星系の一員")+"として生まれた。";
+ $("zone").textContent="観測可能宇宙 / "+region;
+ $("starImage").style.background="radial-gradient(circle at 30% 28%,#ffffff 0%,"+t.color+" 36%,"+t.color+" 72%,#304064 100%)";
+ $("starImage").style.boxShadow="0 0 36px "+t.color+"88,0 0 100px "+t.color+"55";
+ $("companionImage").classList.toggle("show",binary!=="単独星");
+ var facts=[["スペクトル型",t.key+"型"],["質量",f(m,2)+" 太陽質量"],["温度の目安",f(temp,0)+" K"],["主系列の寿命（近似）",years(life)],["出生地",location],["恒星系",binary],["連れの星",binary==="単独星"?"なし":f(companion,2)+" 太陽質量"],["惑星",formed.planets.length+" 個"]];
+ $("starFacts").innerHTML=facts.map(function(x){return '<div class="fact"><small>'+x[0]+'</small><strong>'+x[1]+'</strong></div>'}).join("");
+ $("serial").textContent="抽選ID（演出）: "+s.id+" / 今回の誕生: "+s.roll+" 回目";
+ $("forward").classList.remove("hidden");$("again").classList.add("hidden");$("copy").classList.add("hidden");
+ draw();$("playing").scrollIntoView({block:"start",behavior:"smooth"});
+}
+function episodes(){
+ var p=s.system.planets,candidates=p.filter(function(x){return x.suitable}),living=p.filter(function(x){return x.life}),complex=p.filter(function(x){return x.complex}),intelligent=p.filter(function(x){return x.intelligence});
+ var binaryStory=s.binary==="単独星"?"あなたは単独星として核融合を始める。":s.binary==="近接連星"?"近くの伴星と互いの周りを回る。円盤が十分に安定すれば、連星全体を回る惑星も形成されうる。":"遠くの伴星と重力で結ばれる。惑星は主星の周りを回ることができる。";
+ var formation=p.length?p.length+"個の惑星が形成された、という今回の仮想分岐。岩石惑星、巨大ガス惑星、氷惑星が軌道に並ぶ。":"この分岐では、長期に残る惑星が形成されなかった。恒星には惑星がない場合もある。";
+ var lifeText=!p.length?"惑星がないため、今回の系には惑星上の生命の舞台がない。":!candidates.length?"今回のモデルで『生命に適した可能性がある岩石惑星』は見つからなかった。生命が絶対に存在しないという意味ではない。":!living.length?"候補となる岩石惑星は"+candidates.length+"個。ただし今回の物語では生命は確認されなかった。生命発生の確率自体、科学的には未確定だ。":"岩石惑星「"+living[0].name+"」で微生物のような生命が発生した！"+(complex.length?" 長い時間を経て複雑な生命へ進化した。":" その後の進化には多くの不確実性が残る。")+(intelligent.length?" さらに知的生命が文明を築くという稀な分岐を引いた。":"");
+ var ending,late;
+ if(s.m<.5){late="とても小さい恒星の寿命は現在の宇宙年齢を大きく上回る。こんな星が生涯を終えた姿は、まだ直接観測されていない。";ending="はるかな理論上の未来。燃料が尽きたあと、白色矮星のような残骸へと進化すると考えられている。";}
+ else if(s.m<8){late="中心の水素が乏しくなり、星の内部構造が変わる。あなたは巨星段階を迎え、外層を膨らませる。";ending="外層を宇宙空間へ放ち、中心には白色矮星が残る。長い時間をかけて、ゆっくりと冷えていく。";}
+ else if(s.m<20){late="重い元素の核融合が進み、中心核は徐々に不安定になっていく。";ending="中心核崩壊と超新星爆発を迎える可能性が高い。最後に中性子星などの高密度天体が残る。";}
+ else{late="強烈な放射を続けながら急速に進化する。中心では重元素の核融合が進む。";ending="中心核崩壊の結果、ブラックホールができる可能性がある。爆発や質量放出の様子は条件によって異なる。";}
+ return [
+ ["星の誕生","分子雲","冷たいガスと塵が重力で収縮し、原始星が生まれた。あなたの質量は太陽の"+f(s.m,2)+"倍。遠く離れた銀河にも、星の材料がある。"],
+ ["星の仲間","連星の運命",binaryStory],
+ ["核融合","光の始まり","中心で水素の核融合が始まる。表面温度はおよそ"+f(s.temp,0)+" K。主系列星としての寿命は概算で"+years(s.life)+"。"],
+ ["惑星の獲得","原始惑星系円盤",formation+" 恒星系の性質によって惑星軌道の安定性も変わる。"],
+ ["生命の抽選","もうひとつの奇跡",lifeText],
+ ["時間の流れ","数百万年から数兆年",late+" 生命の生まれた惑星があれば、その行方は恒星の進化にも左右される。"],
+ ["星の最期","残されるもの",ending],
+ ["宇宙への記録","たったひとつの一生","あなたは"+s.location+"に生まれた"+s.t.key+"型の星だった。伴星は"+(s.binary==="単独星"?"いなかった": "いた")+"。惑星は"+p.length+"個、生命の誕生は"+(living.length?"あった":"確認されなかった")+"。この物語と異なる、無数の未来が宇宙にある。"]
+ ];
+}
+function planetList(){
+ var arr=s.system.planets;if(!arr.length){$("system").innerHTML='<div class="notice">今回の抽選では、惑星を持たない恒星系になりました。</div>';return}
+ var colors={"岩石惑星":"#a3cdb1","巨大ガス惑星":"#eac492","氷惑星":"#9cc8ec"};
+ $("system").innerHTML='<div class="sec-title">あなたの惑星系</div>'+arr.map(function(p){
+ var label=p.intelligence?"知的生命の痕跡":p.complex?"複雑な生命":p.life?"微生物の生命":p.suitable?"生命の候補":"生命の確認なし";
+ return '<div class="planet"><span class="planet-dot" style="background:radial-gradient(circle at 30% 26%,#f8f8ff,'+colors[p.kind]+' 52%,#253450)"></span><div><b>'+p.name+' <span class="mark">'+(p.life?'✦ ':'')+'</span></b><small>'+p.kind+' / 軌道半径 約'+f(p.orbit,2)+' AU / '+label+'</small></div></div>';
+ }).join("")+'<p class="tiny">※惑星数・軌道・生命判定はいずれも創作シミュレーション。居住可能領域にあるだけでは生命が存在するとは限りません。</p>';
+}
+function draw(){
+ var e=episodes(),x=e[stage];$("era").textContent=x[0];$("chapter").textContent=x[1];$("narration").textContent=x[2];$("stageNum").textContent=(stage+1)+" / "+e.length;
+ $("progress").innerHTML=e.map(function(_,i){return '<span class="'+(i<=stage?'done':'')+'"></span>'}).join("");
+ $("system").classList.toggle("hidden",stage<3);if(stage>=3)planetList();
+ var end=stage===e.length-1;$("forward").classList.toggle("hidden",end);$("again").classList.toggle("hidden",!end);$("copy").classList.toggle("hidden",!end);
+ $("foot").textContent=end?"何度でも別の星になれます。結果はサーバーに送信されません。":"次の時代へ進むと、惑星形成や生命発生などの出来事が明らかになります。";
+}
+$("birth").addEventListener("click",born);
+$("forward").addEventListener("click",function(){if(s&&stage<7){stage++;draw()}});
+$("again").addEventListener("click",born);
+$("copy").addEventListener("click",function(){
+ if(!s)return;
+ var living=s.system.planets.filter(function(x){return x.life}).length>0;
+ var result="宇宙の一粒｜"+s.t.key+"型 "+s.t.name+"｜"+f(s.m,2)+"太陽質量｜"+s.binary+"｜惑星"+s.system.planets.length+"個｜生命"+(living?"あり":"確認なし")+" #宇宙の一粒";
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(result).then(function(){$("copy").textContent="コピーしました ✓"},function(){$("copy").textContent="コピーできませんでした"})}
+ else{var box=document.createElement("textarea");box.value=result;box.style.position="absolute";box.style.left="-9999px";document.body.appendChild(box);box.select();try{document.execCommand("copy");$("copy").textContent="コピーしました ✓"}catch(e){$("copy").textContent="コピーできませんでした"}box.remove()}
+});
+})();
+</script>
+</body>
+</html>
