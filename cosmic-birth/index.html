@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#07101e">
 <meta name="description" content="観測可能宇宙のどこかに、ひとつの恒星として生まれる。連星、惑星形成、生命の誕生、星の最期まで体験する無料の宇宙シミュレーション。">
-<title>宇宙の一粒 — ONE IN THE COSMOS</title>
+<title>1𥝱分の1</title>
 <style>
 :root{color-scheme:dark;--bg:#080f20;--panel:#121d37;--line:#344460;--text:#f3f7ff;--muted:#b8c5df;--aqua:#8ce9dd}
 *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#263a63,#0e1931 37%,#080f20 76%);color:var(--text);font:15px/1.7 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;min-height:100svh}
@@ -17,7 +17,7 @@ main{max-width:690px;margin:auto;padding:22px 16px calc(42px + env(safe-area-ins
 </head>
 <body>
 <main>
-<div class="top"><div><div class="eyebrow">ONE IN THE COSMOS</div><div class="brand">宇宙の一粒</div></div><span class="pill">観測可能宇宙・無料</span></div>
+<div class="top"><div><div class="eyebrow">ONE IN THE COSMOS</div><div class="brand">1𥝱分の1</div></div><span class="pill">観測可能宇宙・無料</span></div>
 <section id="intro">
  <div class="card hero"><div class="sky"><span class="orbit"></span><span class="orbit b"></span><div class="sun"></div></div><div class="eyebrow">A STAR IS BORN</div><h1>宇宙のどこかで、<br>星になる。</h1><p>生まれる銀河も、質量も、運命も選べない。<br>連星や惑星、生命の可能性を抱え、ひとつの恒星として生きよう。</p></div>
  <div class="card"><div class="sec-title">今回の宇宙</div><div class="facts"><div class="fact"><small>抽選対象</small><strong>観測可能宇宙</strong></div><div class="fact"><small>恒星の数</small><strong>10²²〜10²⁴個程度の推定規模</strong></div><div class="fact"><small>連星系</small><strong>質量に応じた抽選</strong></div><div class="fact"><small>惑星・生命</small><strong>仮想モデルで分岐</strong></div></div><div class="notice">これは実在の全恒星から抽出した結果ではありません。星の種類や連星の頻度は簡易近似、惑星形成と生命発生は創作上の仮定です。とくに生命発生の確率は科学的に確定していません。</div></div>
@@ -138,7 +138,7 @@ $("again").addEventListener("click",born);
 $("copy").addEventListener("click",function(){
  if(!s)return;
  var living=s.system.planets.filter(function(x){return x.life}).length>0;
- var result="宇宙の一粒｜"+s.t.key+"型 "+s.t.name+"｜"+f(s.m,2)+"太陽質量｜"+s.binary+"｜惑星"+s.system.planets.length+"個｜生命"+(living?"あり":"確認なし")+" #宇宙の一粒";
+ var result="1𥝱分の1｜"+s.t.key+"型 "+s.t.name+"｜"+f(s.m,2)+"太陽質量｜"+s.binary+"｜惑星"+s.system.planets.length+"個｜生命"+(living?"あり":"確認なし")+" #1𥝱分の1";
  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(result).then(function(){$("copy").textContent="コピーしました ✓"},function(){$("copy").textContent="コピーできませんでした"})}
  else{var box=document.createElement("textarea");box.value=result;box.style.position="absolute";box.style.left="-9999px";document.body.appendChild(box);box.select();try{document.execCommand("copy");$("copy").textContent="コピーしました ✓"}catch(e){$("copy").textContent="コピーできませんでした"}box.remove()}
 });
